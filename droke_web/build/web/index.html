@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Sean Droke - Professional Portfolio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style/mystyle.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+                <link href="style/clickSort.css" rel="stylesheet" type="text/css" /> 
+    </head>
+    <body>
+        <div id="banner">
+            <div class="logo-header">
+                <img class="left-adjust" src="pics/seandroke.png"/>
+            </div>
+            <div class="text-header">
+                <a class="left-adjust-text-top">Sean Droke</a>
+                <br />
+                <a class="left-adjust-text-bottom">Computer Science Student at Temple University</a>
+            </div>
+        </div>
+        <div id="nav">
+            <div class="dropdown">
+                <button class="dropbutton">Search
+                </button>
+                <div class="dropdown-links">
+                    <a href="#/users">Users</a>
+                    <a href="#/resume">Resume</a>
+                    <a href="#/slideshow">Slide Show</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbutton">Account
+                </button>
+                <div class="dropdown-links">
+                    <a href="#/login">Log In</a>
+                    <a href="#/profile">Profile</a>
+                    <a href="#/register">Register</a>
+                    <a href="webAPIs/logoffAPI.jsp">Log Out</a>
+                </div>
+            </div>
+            <a href="#">About Me</a>
+            <a href="#/blog">Blog</a>
+            <a href="#/insertResume">Insert Resume</a>
+            <a href="#/home">Home</a>
+        </div>
+        <div id="content"></div>
+        <div id="footer">
+            <h3>Sean Droke</h3>
+        </div>
+        <script src="js/routeFw.js"></script>
+        <script src="js/components/blog.js"></script>
+        <script src="js/components/home.js"></script>
+        <script src="js/components/users.js"></script>
+        <script src="js/components/resume.js"></script>
+        <script src="js/ajax2.js"></script>
+        <script src="js/routeFw.js"></script>
+        <script src="js/MakeTableBuilder.js"></script>
+        <script src="js/components/showSlides.js"></script>
+        <script src="js/components/userSlides.js"></script>
+        <script src="js/components/resumeSlides.js"></script>
+        <script src="js/components/logon.js"></script>
+        <script src="js/CRUD_icons.js"></script>
+        <script src="js/Utils.js"></script>
+        <script>
+
+                "use strict";
+                var myRoutes = [];
+
+                myRoutes['/'] = home;
+                myRoutes['/home'] = home;
+                myRoutes['/blog'] = blog;
+                myRoutes['/users'] = users.list;
+                myRoutes['/resume'] = resume.list;
+                myRoutes['/slideshow'] = showSlides;
+                myRoutes['/login'] = logon;
+                myRoutes['/profile'] = profile;
+                myRoutes['/register'] = users.insertUI;
+                myRoutes['/insertResume'] = resume.insertUI;
+                
+                myRoutes['/userUpdate'] = function () {};
+                myRoutes['/resumeUpdate'] = function() {};
+
+                var myRoutes = routeFw({
+                    routeArray: myRoutes,
+                    contentId: "content",
+                    startingPath: '/home'
+                });
+                
+                var tableBuilder = MakeTableBuilder("icons/sortUpDown16.png");
+                
+
+        </script>
+    </body>
+</html>

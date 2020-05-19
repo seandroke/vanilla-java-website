@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Building a simple router</title>
+        <link href="style/listStyle.css" rel="stylesheet" type="text/css" />  
+    </head>
+    <body>
+        <a href="#/home">Home</a> |
+        <a href="#/blog">Blog</a> |
+        <a href="#/missing">Missing Link</a>
+        <br/>
+        <br/>
+
+        <!-- Note: the JavaScript code expects there to be a DOM object with id "view" -->
+        <!-- This is where the content is placed. -->
+        <div id="view"></div>
+
+        <!-- Whenever you create a new js file, remember to add a script tag to it. --> 
+        <!-- Or else your page will not know about any code that is stored in that file. --> 
+
+        <script src="js/routeFw.js"></script>
+        <script src="js/components/blog.js"></script>
+        <script src="js/components/home.js"></script>
+        <script>
+
+            "use strict";
+
+            // Declare an array to store our routes:
+            var myRoutes = [];
+
+            // Add link/content entries into the route array.
+            // Remember that with JS associative array syntax, the keys look like index values even though 
+            // they are character strings, not integers. 
+            // In this version of the code, the value stored is a function not a character string.
+            myRoutes['/'] = home;  // home is a function stored in js/components/home.js
+            myRoutes['/home'] = home;
+            myRoutes['/blog'] = blog; // blog is a function stored in js/components/blog.js
+
+            // routeFw returns an object that has private and public 
+            // data members and methods. 
+            // This "consumer code" specifies input parameters of an array of objects that each 
+            // specify path and content, id of DOM element where the FW is to place the content, 
+            // and the desired starting path. 
+            var myRouteFw = routeFw({
+                routeArray: myRoutes,
+                contentId: "view",
+                startingPath: '/home'
+            });
+
+            // print the routes (check console.log)
+            // This example is now a bit silly (since the HTML page already has access to the route 
+            // array), but it does show you how the HTML page can get a reference to an object 
+            // and then use that to invoke any public methods on the object. 
+            myRouteFw.printRoutes();
+        </script>
+    </body>
+</html>

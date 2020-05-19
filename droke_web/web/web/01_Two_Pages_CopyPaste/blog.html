@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <!-- Use this type of comment within HTML -->
+        <title>[Title of YOUR web site]</title>
+
+        <!-- Link to an External Style Sheet -->
+        <link href="style/myStyle.css" rel="stylesheet" type="text/css" />  
+
+
+        <!-- this is your internal style sheet -->
+        <style> 
+
+        </style>
+    </head>
+    <body>
+
+        <div id="titleNav">
+
+            <div id="pageTitle">
+                Website Title
+            </div>
+
+            <div id="nav">
+                <a href="01_index.html">Home</a>
+                | <!-- vertical bar used as separator -->
+                <a href="blog.html">Blog</a>
+            </div>
+
+        </div>
+
+        <div id="content">
+            <!--  This is not a complete HTML page. It just has the HTML that should go in the content area of your page. -->
+
+            <!-- These style rules will be applied after (or on top of) any other styles defined in the header of the template -->
+            <style>
+                #content {
+                    padding-left: 16px;
+                    padding-right: 16px;
+                }
+
+                #content p {
+                    margin-left: 1em; /* indent paragraphs inside of content (indent amount is the size of a captial "M") */
+                }
+            </style>
+
+            <h3>Homework 1: Web Home Page</h3>
+            <p>
+                My web experience consists of ... 
+
+            </p>
+            <p>
+                Move the rest of the blog from your Home Page homework 
+                (e.g., advanced CSS techniques used, what you learned, what you found hard or easy).
+            </p>
+
+            <h3>Homework 2: Routing and DB</h3>
+            <p>    
+                My database experience consists of ... 
+            </p>
+            <p>    
+                Click <a href="db.docx">here</a> to see the document that shows my database work for this week. 
+                [[Don't forget to put the word document in your web root folder and publish it]]. 
+            </p>
+            <p>
+                Explain what you learned in this assignment (both the database part, as well as the 
+                client side routing part), tell what you found hard or easy... 
+            </p>
+
+
+            <h3>Homework 3: Web API</h3>
+
+            <p>
+                In this Homework, I learned how to write Web APIs using Java and JSP pages (server side technology) to 
+                output database data in JSON format (JavaScript Object Notation). 
+            </p>
+            <p>
+                Click <a href="dbErrors.docx">here</a> to see my document that describes various java/database errors and how to correct them.
+            </p>
+            <p>
+                Describe what you found easy or hard this week.
+            </p>
+
+            <h3>Homework 4: Display Data</h3>
+            <p>
+                In this Homework, I learned how to display JSON data (provided by a Web API) 
+                in the web page using some reusable JavaScript code. 
+            </p>
+
+            <h3>...</h3>
+
+        </div> <!-- content. [[Keep track of nesting]] -->
+        <div id="footer">
+            [ your name goes here ]
+        </div>
+    </body>
+</html>

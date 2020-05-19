@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Building a simple router</title>
+    </head>
+    <body>
+
+        <div style ="background-color: #DDDDDD; padding: 1ex;">
+
+            <p>
+                This is the simplest example of using routing. The functional improvement with this code 
+                is that you actually see the page links in the address bar and 
+                the user can use the browser's back and forward buttons. To test out the functionality, 
+                click the links below this grey area and see each link showing in the address bar 
+                as the "fake" content changes (below the links).
+            </p>
+            <p>
+                With this code, we simply:
+            </p>
+            <ul>
+                <li>
+                    Declare a global array (routes) with key/value pairs that define all the desired
+                    link/content associations. 
+                </li>
+                <li>
+                    Define a simple router function that places the desired content on the page, based 
+                    on the value of the active link (window.location.hash).
+                </li>
+                <li>
+                    Then we add an event handler that invokes function 'router' whenever the active link changes. 
+                    <br/>
+                    <pre>
+    window.addEventListener('hashchange', router);
+                    </pre>
+                </li>
+                <li>
+                    This line of code injects the page with home content upon initial page load. We set the 
+                    hash to a dummy value before setting it to the desired home content - just to ensure that there 
+                    is a change to the location.hash upon page refresh (this avoids the occasional empty content upon
+                    page refresh).
+                    <br/>
+                    <pre>
+    window.location.hash = '/home';
+                    </pre>
+                </li>
+            </ul>
+
+        </div>
+
+        <br/>
+        <br/>
+        <a href="#/home">Home</a> |
+        <a href="#/page1">Page 1</a> |
+        <a href="#/page2">Page 2</a> |
+        <a href="#/missing">Missing Link</a>
+        <br/>
+        <br/>
+
+        <!-- Note: the JavaScript code expects there to be a DOM object with id "view" -->
+        <!-- This is where the content is placed. -->
+        <div id="view"></div>
+
+        <script>
+
+            "use strict";
+
+            // set up route associative (key/value) array to hold link/content associations.
+            var routes = [];
+
+            // Add link/content entries into the route array. 
+            // Using JS associative array notation to store key/value pair like a hash. 
+            // With associative array syntax, the key looks like an array index 
+            // (even though its a character string, not an integer).
+            routes['/'] = 'home Content';
+            routes['/home'] = 'home Content';
+            routes['/page1'] = 'page1 Content';
+            routes['/page2'] = 'page2 Content';
+
+            console.log("routes printed on next line ");
+            console.log(routes);
+
+            function router() {
+
+                console.log("location.hash (the link that was clicked) is " + location.hash);
+                // prints something like #/home
+
+                // remove leading # from string that holds the clicked link
+                var path = location.hash.slice(1) || '/';
+                console.log('path (with no #) is ' + path);
+                // prints something like /home
+
+                // Use the url like an index (JS associative array notation) to find 
+                // the desired content and place it in the content area.
+                if (!routes[path]) {
+                    document.getElementById("view").innerHTML = "Error: path '" + path +
+                            "' was never added to the route array.";
+                } else {
+                    document.getElementById("view").innerHTML = routes[path];
+                }
+            }
+
+            // Listen on hash change (whenever a link is clicked)
+            // In other words, whenever a link is clicked, invoke function router.
+            window.addEventListener('hashchange', router);
+
+            // invoke an invalid content/link so that the next line will definitely change location.hash
+            // otherwise sometimes with refresh you do not see the home content
+            window.location.hash = '/xxx';
+
+            // content for when page is first rendered.
+            window.location.hash = '/home';
+        </script>
+    </body>
+</html>

@@ -1,0 +1,331 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 29, 2019, 4:24:16 PM
+    Author     : SeanDroke
+*/
+
+body{
+    margin-top: 10px;
+    margin-left: 15%;
+    margin-right: 15%;
+    display: block;
+    position: relative;
+    clear: both;
+    width: 70%;
+    background-color: #2B3138;
+    color: white;
+    font-family: 'Staatliches', cursive;
+    letter-spacing: 0.20em;
+}
+
+#banner {
+    display: block;
+    background-color: #03DAC6;
+    border-radius: 30px 30px 30px 0px;
+    height: 150px;
+    width: 100%;
+    box-shadow: 10px 10px 10px 10px #22262b;
+}
+
+#banner .logo-header .left-adjust{
+    float: left;
+    width: 100px;
+    padding: 20px;
+}
+
+#banner .text-header {
+    float: left;
+    text-align: left;
+    padding: 20px;
+    padding-top: 50px;
+    width: 50%;
+}
+
+#banner .text-header .left-adjust-text-top {
+    font-size: 30px;
+}
+
+#banner .text-header .left-adjust-text-bottom{
+    font-size: 15px;
+    font-style: italic;
+}
+
+#nav {
+    overflow: hidden;
+    font-family: 'Staatliches', cursive;
+    width: 75%;
+    border-radius: 0px 0px 30px 30px;
+    box-shadow: 10px 10px 10px 10px #22262b;
+    background-color: #BB86FC;
+}
+
+#nav a{
+    float: left;
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    padding: 20px 20px;
+    text-decoration: none;
+}
+
+#nav .dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+#nav .dropdown .dropbutton {
+    font-size: 15px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 20px 20px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+#nav a:hover, #nav .dropdown .dropbutton:hover{
+    background-color: #3700B3;
+}
+
+#nav .dropdown .dropdown-links {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+#nav .dropdown .dropdown-links a{
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+#nav .dropdown .dropdown-links a:hover{
+    background-color: #ddd;
+}
+
+#nav .dropdown:hover .dropdown-links {
+    display: block;
+}
+
+#content .jumbotron{
+    padding-top: 50px;
+    float: left;
+    width: 100%;
+    padding-bottom: 100px;
+}
+
+#content .jumbotron .text-card{
+    box-shadow: 10px 10px 10px 10px #22262b;
+    background-color: #CF6679;
+    border-radius: 30px;
+    padding: 20px;
+    text-align: center;
+}
+
+#content .jumbotron .row .column-1 .image-card {
+    box-shadow: 10px 10px 10px 10px #22262b;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    padding: 30px;
+}
+
+#content .jumbotron .row .column-1 .image-card img {
+    width: 100%;
+    height: 100%;
+}
+
+#content .jumbotron .row .column-1 {
+    float: left;
+    width: 45%;
+    padding-top: 10px;
+}
+
+#content .jumbotron .row .column-1 a {
+    text-decoration: none;
+    font-family: inherit;
+    font-style: italic;
+    font-size: 20px;
+    color: black;
+}
+
+#content .jumbotron .row .column-2 {
+    padding-left: 10%;
+}
+
+#content .jumbotron .row .column-2 .image-card {
+    box-shadow: 10px 10px 10px 10px #22262b;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    padding: 30px;
+}
+
+#content .jumbotron .row .column-2 .image-card img {
+    width: 100%;
+    height: 100%;
+}
+
+#content .jumbotron .row .column-2 {
+    float: left;
+    width: 45%;
+    padding-top: 10px;
+}
+
+#content .jumbotron .row .column-2 a {
+    text-decoration: none;
+    font-family: inherit;
+    font-style: italic;
+    font-size: 20px;
+    color: black;
+}
+
+#content .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#content {
+    margin-bottom: 100px;
+}
+
+#footer {
+    position: fixed;
+    width: 70%;
+    bottom: 0;
+    height: 50px;
+    background-color: #03DAC6;
+    box-shadow: 10px 10px 10px 10px #23282d;
+    border-radius: 5px;
+}
+
+#footer h3 {
+    padding-left: 10px;
+}
+
+#content a{
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+    color: white;
+}
+
+@media only screen and (max-width: 1224px){
+    body{
+        width: 100%;
+        margin: auto;
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+    }
+    #content{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    #banner{
+        border-radius: 0px;
+        padding: 0px;
+        width: 130%;
+    }
+    #banner .logo-header .left-adjust{
+        padding-left: 30%;
+    }
+    #banner .text-header {
+        width: 75%;
+        background-color: white;
+        color: black;
+    }
+    #nav {
+        width: 105%;
+        border-radius: 0px;
+    }
+    #footer {
+        width: 100%;
+    } 
+}
+
+#user-pics > img{
+    width: 300px;
+    height: 300px;
+}
+
+#user-pics{
+    margin-left: 15%;
+    float: left;
+    text-align: center;
+    margin-top: 5%;
+    margin-right: 2.5%;
+}
+
+#slideshow-wrapper{
+    display: inline;
+    text-align: center;
+}
+
+#resume-pics > img{
+    width: 300px;
+    height: 300px;
+}
+
+#resume-pics{
+    margin-top: 4%;
+    margin-left: 2.5%;
+    margin-right: 15%;
+    float: right;
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 50px;
+}
+
+#delete-button{
+    display: block;
+    margin-left: 35%;
+    margin-top: 5%;
+}
+
+#login-form{
+    display: block;
+    padding-left: 40%;
+    padding-top: 50px; 
+}
+
+form {
+    padding-bottom: 20px;
+}
+
+#submit-button{
+    left: 100px;
+}
+
+#msgSelector{
+    text-align: center;
+}
+
+#msgSelector > img{
+    height: 300px;
+    width: 300px;
+}
+
+#profile-wrapper{
+    text-align: center;
+    padding-top: 30px;
+}
+
+#profile-wrapper > img {
+    height: 300px;
+    width: 300px;
+}
+
+
+
+

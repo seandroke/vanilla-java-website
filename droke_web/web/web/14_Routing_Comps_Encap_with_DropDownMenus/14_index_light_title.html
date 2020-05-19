@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <!-- Use this type of comment within HTML -->
+        <title>[Title of YOUR web site]</title>
+
+        <link href="style/commonStyle.css" rel="stylesheet" type="text/css" />  
+        <link href="style/lightTitleStyle.css" rel="stylesheet" type="text/css" />  
+        <link href="style/listStyle.css" rel="stylesheet" type="text/css" />  
+
+    </head>
+    <body>
+
+        <div id="titleNav">
+
+            <div id="pageTitle">
+                Website Title
+            </div>
+
+            <div id="nav">
+                <div class="dropdown">
+                    <a href="#/home"><img title="Home" src="icons/light/home_icon_H24.png" alt="Home"></a>
+                </div>
+                <div class="dropdown">
+                    <img class="dropHeader" title="Account"  onclick="myDropdown.toggle(this)" src="icons/light/account_dd_icon_H24.png" alt="Account" >
+                    <div class="dropContent" id="accountDropDown">
+                        <a>Register</a> <br/>
+                        <a>Log In</a> <br/>
+                        <a>Profile</a> <br/>
+                        <a>Log Out</a>
+                    </div> 
+                </div>
+                <div class="dropdown">
+                    <img class="dropHeader" title="Search" onclick="myDropdown.toggle(this)" src="icons/light/search_dd_icon_H24.png" alt="Search" >
+                    <div class="dropContent" id="searchDropDown">
+                        <a href="#/users">Users</a> <br/>
+                        <a href="#/cars">Cars</a> 
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <img class="dropHeader" title="Tutorial"  onclick="myDropdown.toggle(this)" src="icons/light/tutorial_dd_icon_H24.png" alt="Account" >
+                    <div class="dropContent" id="tutorialDropDown">
+                        <a>Proposal</a> <br/>
+                        <a>Demo</a> <br/>
+                        <a>Log</a> <br/>
+                    </div> 
+                </div>          
+                <div class="dropdown">
+                    <a href="#/blog"><img  title="Blog" src="icons/light/blog_icon_H24.png" alt="Blog"></a>
+                </div>
+            </div>
+
+        </div>  <!-- end of titleNav (keep track of nesting) -->
+
+        <div id="content">
+        </div> 
+
+        <div id="footer">
+            [ your name goes here ]
+        </div>
+        <script src="js/dropdownFw.js"></script>
+
+        <script src="js/routeFw.js"></script>
+        <script src="js/components/blog.js"></script>
+        <script src="js/components/cars.js"></script>
+        <script src="js/components/home.js"></script>
+        <script src="js/components/users.js"></script>
+        <script>
+
+                        "use strict";
+                        var myRoutes = [];
+
+                        myRoutes['/'] = home;  // home is a function stored in js/components/home.js
+                        myRoutes['/home'] = home;
+                        myRoutes['/cars'] = cars;
+                        myRoutes['/users'] = users;
+                        myRoutes['/blog'] = blog;
+
+
+                        // routeFw returns a routing object that has private and public 
+                        // data members and methods. 
+                        // As input parameter, it takes an object with properties you can set 
+                        // or just accept whatever defaults are set by the framework.
+                        var myRoutes = routeFw({
+                            routeArray: myRoutes,
+                            //startingPath: '/home',
+                            contentId: "content"
+                        });
+
+                        // print the routes (check console.log)
+                        myRoutes.printRoutes();
+
+                        var myDropdown = dropDownFw({
+                            dropContentStyle: "dropContent",
+                            hiddenRight: "-500px"
+                        });
+
+        </script>
+    </body>
+</html>

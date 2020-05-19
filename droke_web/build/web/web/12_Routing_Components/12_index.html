@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Building a simple router</title>
+        <link href="style/listStyle.css" rel="stylesheet" type="text/css" />  
+    </head>
+    <body>
+        <a href="#/home">Home</a> |
+        <a href="#/blog">Blog</a> |
+        <a href="#/missing">Missing Link</a>
+        <br/>
+        <br/>
+
+        <!-- Note: the JavaScript code expects there to be a DOM object with id "view" -->
+        <!-- This is where the content is placed. -->
+        <div id="view"></div>
+
+        <!-- Whenever you create a new js file, remember to add a script tag to it. --> 
+        <!-- Or else your page will not know about any code that is stored in that file. --> 
+        <script src="js/components/blog.js"></script>
+        <script src="js/components/home.js"></script>
+        <script>
+
+            "use strict";
+
+            // Declare an array to store our routes:
+            var routes = [];
+
+            // Add link/content entries into the route array.
+            // Remember that with JS associative array syntax, the keys look like index values even though 
+            // they are character strings, not integers. 
+            // In this version of the code, the value stored is a function not a character string.
+            routes['/'] = home;  // home is a function stored in js/components/home.js
+            routes['/home'] = home;
+            routes['/blog'] = blog; // blog is a function stored in js/components/blog.js
+
+            console.log("routes printed on next line ");
+            console.log(routes);
+
+            function router() {
+
+                console.log("location.hash (the link that was clicked) is " + location.hash);
+                // prints something like #/home
+
+                // remove leading # from string that holds the clicked link
+                var path = location.hash.slice(1) || '/';
+                console.log('path (with no #) is ' + path);
+                // prints something like /home
+
+                // Use the url like an index (JS associative array notation) to find 
+                // the desired content and place it in the content area.
+                // document.getElementById("view").innerHTML = routes[url];
+                if (!routes[path]) {
+                    document.getElementById("view").innerHTML = "<p>Error: link '" + path +
+                            "' was never added to the route array.</p>";
+                } else {
+                    // invoke the function that's specified by the ajaxFillId(routes[url], "view");
+                    // pass the correct route object to that function (either staticContent or jsonContent)
+                    routes[path](); // invoke function routes[path], a JS funtion/component
+                }
+            }
+
+            // Listen on hash change (whenever a link is clicked)
+            // In other words, whenever a link is clicked, invoke function router.
+            window.addEventListener('hashchange', router);
+
+            // content for when page is first rendered.
+            window.location.hash = '/home';
+        </script>
+    </body>
+</html>

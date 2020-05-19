@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Building a simple router</title>
+    </head>
+    <body>
+
+        <div style ="background-color: #DDDDDD; padding: 1ex;">
+
+            <p>
+                With this version of the code, we have employed "consumer / provider" style coding meaning 
+                that the code in our JS file should be easily transferable to any other HTML page, without 
+                breaking. This is because the JS file will not reference anything that was not passed to it. 
+            </p>
+            <ul>
+                <li>
+                    Notice that the index page references a JS file named "routeFw", named after the 
+                    the single function defined within (this is Sally's JS coding convention, helps you organize/find code).
+                </li>
+                <li>
+                    The index page invokes the single function, passing in its preferences, e.g., route array 
+                    (list of link/content pairs), starting link, and id of the DOM element desired to hold the content. 
+                </li>
+                <li>
+                    The function in the JS file checks the parameter object and sets some default values, if 
+                    necessary. The router function (as in the previous example) simply injects the content 
+                    that is associated with the active link (window.location.hash). 
+                </li>
+                <li>
+                    As before, this line of code says that whenever the active link changes, invoke the router function, 
+                    but now that function is local instead of global. 
+                    <br/>
+                    <pre>
+    window.addEventListener('hashchange', router);
+                    </pre>
+                </li>
+                <li>
+                    And this line of code injects the page with home content upon initial page load: 
+                    <br/>
+                    <pre>
+    window.location.hash = '/home';
+                    </pre>
+                </li>
+            </ul>
+
+        </div>
+        <br/>
+        <br/>
+
+        <a href="#/home">Home</a> |
+        <a href="#/page1">Page 1</a> |
+        <a href="#/page2">Page 2</a> |
+        <a href="#/missing">Missing Link</a>
+        <br/>
+        <br/>
+
+        <div id="view"></div>
+
+        <script src="js/routeFw.js"></script>
+        <script>
+
+            "use strict";
+
+            // set up route associative (key/value) array. 
+            var myRoutes = [];
+
+            // Add link/content entries into the route array.
+            // Remember that with JS associative array syntax, the keys look like index values even though 
+            // they are character strings, not integers.
+            myRoutes['/'] = 'home Content';
+            myRoutes['/home'] = 'home Content';
+            myRoutes['/page1'] = 'page1 Content';
+            myRoutes['/page2'] = 'page2 Content';
+
+            // routeFw returns a routing object that has private and public 
+            // data members and methods. 
+            // This "consumer code" specifies input parameters of an array of objects that each 
+            // specify path and content, id of DOM element where the FW is to place the content, 
+            // and the desired starting path. 
+            var myRouteFw = routeFw({
+                routeArray: myRoutes,
+                contentId: "view",
+                startingPath: '/home'
+            });
+
+            // print the routes (check console.log)
+            // This example is now a bit silly (since the HTML page already has access to the route 
+            // array), but it does show you how the HTML page can get a reference to an object 
+            // and then use that to invoke any public methods on the object. 
+            myRouteFw.printRoutes();
+
+        </script>
+    </body>
+</html>

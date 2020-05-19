@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Users/SeanDroke/NetBeansProjects/droke_web/src/java/dbUtils/DbConn.java</file>
+            <file>file:/Users/SeanDroke/NetBeansProjects/droke_web/web/web/10_Routing/10_index.html</file>
+            <file>file:/Users/SeanDroke/NetBeansProjects/droke_web/src/java/model/webUser/DbMods.java</file>
+            <file>file:/Users/SeanDroke/NetBeansProjects/droke_web/web/webAPIs/logonAPI.jsp</file>
+            <file>file:/Users/SeanDroke/NetBeansProjects/droke_web/web/webAPIs/getProfileAPI.jsp</file>
+            <file>file:/Users/SeanDroke/NetBeansProjects/droke_web/web/webAPIs/logoffAPI.jsp</file>
+            <file>file:/Users/SeanDroke/NetBeansProjects/droke_web/src/java/model/webUser/StringData.java</file>
+            <file>file:/Users/SeanDroke/NetBeansProjects/droke_web/web/webAPIs/insertUserAPI.jsp</file>
+            <file>file:/Users/SeanDroke/NetBeansProjects/droke_web/src/java/model/webUser/WebUserWithRoles.java</file>
+            <file>file:/Users/SeanDroke/NetBeansProjects/droke_web/src/java/view/RoleView.java</file>
+            <file>file:/Users/SeanDroke/NetBeansProjects/droke_web/web/js/components/logon.js</file>
+            <file>file:/Users/SeanDroke/NetBeansProjects/droke_web/web/webAPIs/getRolesAPI.jsp</file>
+        </group>
+    </open-files>
+</project-private>
