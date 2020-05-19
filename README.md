@@ -23,4 +23,4 @@ Using Netbeans, site can be easily launched from the native GUI.
 
 ## Screenshot
 
-//img
+![alt text](https://github.com/seandroke/vanilla-java-website/blob/master/screenshot/main.png)
